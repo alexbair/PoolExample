@@ -8,3 +8,5 @@ Sample code of pooled resource solution used in [RoboVDino](https://alexbairgame
 2. Make a new resource
 * Pooled resources are configured to automatically turn themselves in to the PoolManager (typically a trigger during an animation), making that resource available again.
 * Because different Scenes will usually have differing quantities of pooled resources, the PoolManager and PrefabPool are torn down at the end of a game Scene and new instances initialized in the next Scene.
+
+Both classes are derived from [MonoBehaviour](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html), the base class for any Unity3D framework object that listens for game Scene events.

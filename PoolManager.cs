@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class to pool and reuse effects and other frequently initialized resources
 public class PoolManager : MonoBehaviour {
 
+    //Only a single instance of PoolManager should be loaded
     [HideInInspector] public static PoolManager instance = null;
 
+    //Each of these Pools are assigned within the Unity editor
     [SerializeField]
     private PrefabPool IndicatorTag;
     [SerializeField]
@@ -45,6 +48,7 @@ public class PoolManager : MonoBehaviour {
 
     void Awake()
     {
+        //Common Unity3D singleton pattern
         if (instance == null)
         {
             instance = this;
@@ -54,6 +58,8 @@ public class PoolManager : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    //Wrapper methods for getting objects from PrefabPools
 
     public GameObject GetPickupIndicatorTag()
     {
